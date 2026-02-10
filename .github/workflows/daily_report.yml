@@ -29,7 +29,7 @@ jobs:
 
     - name: Run script
       run: |
-        python silver main.py  # 님의 파이썬 파일 이름으로 변경하세요!
+        python "silver main.py"  # 님의 파이썬 파일 이름으로 변경하세요!
 
     # ----------------------------------------------------------------
     # [핵심] 생성된 엑셀 파일을 감지하고 Github에 저장(Commit)하는 단계
@@ -40,7 +40,7 @@ jobs:
         git config --global user.email "action@github.com"
         
         # 엑셀 파일이 변경되었는지 확인하고 추가
-        git add platinum_daily_report.xlsx
+        git add silver_daily_report.xlsx
         
         # 변경 사항이 있을 때만 커밋 (에러 방지)
         git diff --quiet && git diff --staged --quiet || (git commit -m "Update Daily Report: $(date +'%Y-%m-%d')" && git push)
